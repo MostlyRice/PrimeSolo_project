@@ -1,8 +1,8 @@
 const express = require('express');
 const encryptLib = require('../modules/encryption');
 const Person = require('../models/Person');
-const userStrategy = require('../strategies/user.strategy');
-
+const userStrategy = require('../strategies/sql.localstrategy');
+const pool = require('../modules/pool.js');
 const router = express.Router();
 
 // Handles Ajax request for user information if user is authenticated
@@ -24,10 +24,20 @@ router.post('/register', (req, res, next) => {
   const username = req.body.username;
   const password = encryptLib.encryptPassword(req.body.password);
 
-  const newPerson = new Person({ username, password });
-  newPerson.save()
-    .then(() => { res.sendStatus(201); })
-    .catch((err) => { next(err); });
+  var saveUser = {
+    username: req.body.username,
+    password: encryptLib.encryptPassword(req.body.password)
+  };
+  console.log('new user:', saveUser);
+  pool.query('INSERT INTO users (username, password) VALUES ($1, $2) RETURNING id',
+    [saveUser.username, saveUser.password], (err, result) => {
+      if (err) {
+        console.log("Error inserting data: ", err);
+        res.sendStatus(500);
+      } else {
+        res.sendStatus(201);
+      }
+    });
 });
 
 // Handles login form authenticate/login POST

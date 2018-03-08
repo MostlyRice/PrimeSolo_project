@@ -2,11 +2,8 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 
-const passport = require('./strategies/user.strategy');
+const passport = require('./strategies/sql.localstrategy');
 const sessionConfig = require('./modules/session-middleware');
-
-//DB Module
-const db = require('./modules/db.config.js');
 
 // Route includes
 const userRouter = require('./routes/user.router');

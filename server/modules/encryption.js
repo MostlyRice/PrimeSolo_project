@@ -1,5 +1,3 @@
-// No changes should be required in this file
-
 const bcrypt = require('bcrypt');
 
 const SALT_WORK_FACTOR = 10;
