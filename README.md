@@ -1,39 +1,74 @@
-# Base Project
+# Project Magic Binder
 
-This base project includes registration and authentication using passport.
+Magic Deckbox is a full-stack web application to keep track of your magic collection. It provides an inventory of your Magic card collection by adding, deleting, and editing your inventory using the Magic The Gathering API and the Mongo/PostgreSQL database (I haven’t decided on what kind of database I am having yet).
 
-## Instructions
+ Link to the live version of the app if it's hosted on Heroku.
 
-**Do not fork this repository.** Forking this repository would make it _private_ and you'll want the repository for your solo project _public_.
+## Built With
 
-1. Read all steps before starting
-2. Select the desired branch (mongo or sql) from the dropdown above
-3. Click the green 'Clone or Download' button and click on 'Download Zip'
-4. Double click the zip file in your downloads folder to extract the contents
-5. Move the folder to the desired location on your computer
-6. Rename the folder to match your project name
-7. Create a repository on GitHub for your project - **do not initialize with a README.md**
-8. Copy the GitHub URL for your project
-9. Open terminal in your project folder and run the following commands
+- Node
+- PEAN Stack
+    - PostgreSQL
+    - Express.js
+    - AngularJS
+    - Node.js
+- Magic The Gathering API (URL)
+- Heroku
 
-```
-git init
-git add .
-git commit -m "Base project with registration and authentication."
-git remote add origin YOUR_GITHUB_PROJECT_URL
-git push -u origin masters
-```
 
-## Solo Project Resources
-- [Scope Template](https://docs.google.com/a/primeacademy.io/document/d/10dqhI--GpNWi0xbY2wt5Uy51mY7HKO-uTY5fc4xoBrs/edit?usp=sharing)
-- [Scope Examples](https://drive.google.com/drive/folders/0B13zFCnqgksYS2Q5WmVFTU5jN3M?usp=sharing)
-- [Common Solo Project Technologies](https://docs.google.com/document/d/1W3VgPf0uh5pcak1hthdx-yHFQbqHji3fpBykw9N1DY0/)
+## Getting Started
 
-## Wireframe or mockup options:
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
-- https://balsamiq.com/
-- https://www.sketchapp.com/
-- https://wireframe.cc/
-- https://www.axure.com/ (Very complex tool, might be more work to learn than worth)
-- https://realtimeboard.com/cases/
-- https://www.uxpin.com/
+### Prerequisites
+
+Link to software that is required to install the app (e.g. node).
+
+- [Node.js](https://nodejs.org/en/)
+- [MongoDB](https://www.mongodb.com/)
+
+### Installing
+
+- npm install
+- Start postreSQL database
+- npm start
+- localhost:5000
+
+## Screen Shot
+
+Include one or two screen shots of your project here (optional). Remove if unused.
+
+## Documentation
+
+Link to a read-only version of your scope document or other relevant documentation here (optional). Remove if unused.
+
+### Completed Features
+
+High level list of items completed.
+- [ ] Create binder collection.
+- [ ] Add cards to binder collection.
+- [ ] Update cards in binder collection.
+- [ ] Delete cards from binder collection.
+- [ ] Consolidate like cards in collection.
+- [ ] Create a wants view feature, cards that you are currently seeking
+- [ ] Create a deckbox view feature, a way to keep track of lists that you were using
+
+### Next Steps
+
+Features that you would like to add at some point in the future.
+
+- [ ] TCGplayer API, to add price estimates to see what your collection, decklists, and wants are priced at
+- [ ] Using the TCGplayer API, an infograph to keep track of history of price spikes/falls
+
+## Deployment
+
+Add additional notes about how to deploy this on a live system
+
+## Author(s)
+
+* James Nguyen
+
+
+## Acknowledgments
+
+* Hat tip to anyone who's code was used
