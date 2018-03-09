@@ -49,6 +49,8 @@ High level list of items completed.
 - [ ] Add cards to binder collection.
 - [ ] Update cards in binder collection.
 - [ ] Delete cards from binder collection.
+
+*Stretch goals*
 - [ ] Consolidate like cards in collection.
 - [ ] Create a wants view feature, cards that you are currently seeking
 - [ ] Create a deckbox view feature, a way to keep track of lists that you were using
