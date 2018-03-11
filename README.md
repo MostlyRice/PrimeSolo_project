@@ -2,7 +2,7 @@
 
 Magic Deckbox is a full-stack web application to keep track of your magic collection. It provides an inventory of your Magic card collection by adding, deleting, and editing your inventory using the Magic The Gathering API and the Mongo/PostgreSQL database (I haven’t decided on what kind of database I am having yet).
 
- Link to the live version of the app if it's hosted on Heroku.
+Link to the live version of the app if it's hosted on Heroku.
 
 ## Built With
 
@@ -25,7 +25,7 @@ These instructions will get you a copy of the project up and running on your loc
 Link to software that is required to install the app (e.g. node).
 
 - [Node.js](https://nodejs.org/en/)
-- [MongoDB](https://www.mongodb.com/)
+- [PostgreSQL](https://www.postgresql.org/)
 
 ### Installing
 
