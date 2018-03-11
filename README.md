@@ -44,7 +44,6 @@ CREATE TABLE "users" (
 );
 ```
 
-
 ## Screen Shot
 
 Include one or two screen shots of your project here (optional). Remove if unused.
@@ -55,16 +54,18 @@ Link to a read-only version of your scope document or other relevant documentati
 
 ### Completed Features
 
-High level list of items completed.
-- [ ] Create binder collection.
-- [ ] Add cards to binder collection.
-- [ ] Update cards in binder collection.
+High level list of items to complete:
+
+- [ ] Add cards to binder collection
+- [ ] Update quantity of said card in  binder collection.
 - [ ] Delete cards from binder collection.
+- [ ] Create a "on hover" feature that showcases the card image over the card
 
 *Stretch goals*
-- [ ] Consolidate like cards in collection.
-- [ ] Create a wants view feature, cards that you are currently seeking
-- [ ] Create a deckbox view feature, a way to keep track of lists that you were using
+
+- [ ] Create a "wishlist" view feature, featuring cards that you are currently seeking
+- [ ] Create a "deckbox" view feature, a way to keep track of lists that you were using 
+- [ ] Within the "deckbox", organize cards in the list by "type of card" (lands, instants, etc)
 
 ### Next Steps
 
