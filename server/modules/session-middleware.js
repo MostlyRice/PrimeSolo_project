@@ -14,14 +14,14 @@ const warnings = require('../constants/warnings');
 */
 
 const serverSessionSecret = () => {
-  if (!process.env.SERVER_SESSION_SECRET ||
-      process.env.SERVER_SESSION_SECRET.length < 8 ||
-      process.env.SERVER_SESSION_SECRET === warnings.exampleBadSecret) {
+  if (!process.env.Quas_Wex_Exort ||
+      process.env.Quas_Wex_Exort.length < 8 ||
+      process.env.Quas_Wex_Exort === warnings.exampleBadSecret) {
     // Warning if user doesn't have a good secret
     console.log(warnings.badSecret);
   }
 
-  return process.env.SERVER_SESSION_SECRET;
+  return process.env.Quas_Wex_Exort;
 };
 
 module.exports = cookieSession({

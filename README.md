@@ -34,6 +34,17 @@ Link to software that is required to install the app (e.g. node).
 - npm start
 - localhost:5000
 
+Steps to get the development environment running.
+
+```sql
+CREATE TABLE "users" (
+  "id" serial primary key,
+  "username" varchar(80) not null UNIQUE,
+  "password" varchar(240) not null
+);
+```
+
+
 ## Screen Shot
 
 Include one or two screen shots of your project here (optional). Remove if unused.
