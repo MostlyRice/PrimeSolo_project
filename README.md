@@ -1,6 +1,6 @@
 # Project Magic Binder
 
-Magic Deckbox is a full-stack web application to keep track of your magic collection. It provides an inventory of your Magic card collection by adding, deleting, and editing your inventory using the Magic The Gathering API and the Mongo/PostgreSQL database (I haven’t decided on what kind of database I am having yet).
+Magic Deckbox is a full-stack web application to keep track of your magic collection. It provides an inventory of your Magic card collection by adding, deleting, and editing your inventory using the Magic The Gathering API and the PostgreSQL database. There will be multiple views within the app to include: Home, search, trades, wishlist, deckbox, and an info page.
 
 Link to the live version of the app if it's hosted on Heroku.
 
@@ -60,9 +60,6 @@ High level list of items to complete:
 - [ ] Update quantity of said card in  binder collection.
 - [ ] Delete cards from binder collection.
 - [ ] Create a "on hover" feature that showcases the card image over the card
-
-*Stretch goals*
-
 - [ ] Create a "wishlist" view feature, featuring cards that you are currently seeking
 - [ ] Create a "deckbox" view feature, a way to keep track of lists that you were using 
 - [ ] Within the "deckbox", organize cards in the list by "type of card" (lands, instants, etc)
