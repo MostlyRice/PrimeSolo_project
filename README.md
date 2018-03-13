@@ -5,8 +5,6 @@ Magic Deckbox is a full-stack web application to keep track of your magic collec
 Link to the live version of the app if it's hosted on Heroku.
 
 ## Built With
-
-- Node
 - PEAN Stack
     - PostgreSQL
     - Express.js
