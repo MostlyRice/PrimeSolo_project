@@ -11,6 +11,22 @@ myApp.config(['$routeProvider', '$locationProvider', function($routeProvider, $l
       templateUrl: '/views/templates/home.html',
       controller: 'LoginController as vm',
     })
+    .when('/search', {
+      templateUrl: '/views/templates/search.html',
+      controller: 'SearchController as vm',
+    })
+    .when('/trades', {
+      templateUrl: '/views/templates/trades.html',
+      controller: 'TradesController as vm',
+    })
+    .when('/wishlist', {
+      templateUrl: '/views/templates/wishlist.html',
+      controller: 'WishlistController as vm',
+    })
+    .when('/deckbox', {
+      templateUrl: '/views/templates/deckbox.html',
+      controller: 'DeckboxController as vm',
+    }) 
     .when('/register', {
       templateUrl: '/views/templates/register.html',
       controller: 'LoginController as vm'
