@@ -13,7 +13,7 @@ myApp.config(['$routeProvider', '$locationProvider', function($routeProvider, $l
     })
     .when('/search', {
       templateUrl: '/views/templates/search.html',
-      controller: 'SearchController as vm',
+      controller: 'searchController as vm',
     })
     // .when('/trades', {
     //   templateUrl: '/views/templates/trades.html',
