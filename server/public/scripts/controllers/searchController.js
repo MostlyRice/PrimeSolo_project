@@ -1,10 +1,10 @@
 myApp.controller('searchController', ['searchService', function(searchService) {
   console.log('searchService created');
-  var self = this;
 
+  const self = this;
   self.searchService = searchService;
 
-  self.searchApi = (searchBar, ) => {
+  self.searchApi = (searchBar) => {
   searchService.searchApi(searchBar);
   }
 }]);

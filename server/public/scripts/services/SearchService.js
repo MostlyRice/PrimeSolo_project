@@ -13,7 +13,7 @@ myApp.service('searchService', ['$http', function($http) {
     })
   .then(function(response){
     console.log('success in search', response);
-    console.log(response.data.cards, 'Magic The Gathering search');
+    console.log(response.data.cards, 'Magic The Gathering search results!!!');
     self.searchOut = response.data.cards;
   })
   .catch(function(error){
