@@ -14,10 +14,20 @@ myApp.config(['$routeProvider', '$locationProvider', function($routeProvider, $l
     .when('/search', {
       templateUrl: '/views/templates/search.html',
       controller: 'searchController as vm',
+      resolve: {
+        getuser : function(UserService){
+          return UserService.getuser();
+        }
+      }
     })
     // .when('/trades', {
     //   templateUrl: '/views/templates/trades.html',
     //   controller: 'TradesController as vm',
+      // resolve: {
+      //   getuser : function(UserService){
+      //     return UserService.getuser();
+      //   }
+      // }
     // })
     // .when('/wishlist', {
     //   templateUrl: '/views/templates/wishlist.html',
