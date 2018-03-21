@@ -1,4 +1,4 @@
-myApp.service('searchService', 'UserService' ['$http','$location', function($http, $location) {
+myApp.service('searchService',['$http','$location', function($http, $location) {
   console.log('searchService loaded!');
 
   const self = this;

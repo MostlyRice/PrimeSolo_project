@@ -20,23 +20,33 @@ myApp.config(['$routeProvider', '$locationProvider', function($routeProvider, $l
         }
       }
     })
-    // .when('/trades', {
-    //   templateUrl: '/views/templates/trades.html',
-    //   controller: 'TradesController as vm',
-      // resolve: {
-      //   getuser : function(UserService){
-      //     return UserService.getuser();
-      //   }
-      // }
-    // })
-    // .when('/wishlist', {
-    //   templateUrl: '/views/templates/wishlist.html',
-    //   controller: 'WishlistController as vm',
-    // })
-    // .when('/deckbox', {
-    //   templateUrl: '/views/templates/deckbox.html',
-    //   controller: 'DeckboxController as vm',
-    // })
+    .when('/trades', {
+      templateUrl: '/views/templates/trades.html',
+      controller: 'cardController as vm',
+      resolve: {
+        getuser : function(UserService){
+          return UserService.getuser();
+        }
+      }
+    })
+    .when('/wishlist', {
+      templateUrl: '/views/templates/wishlist.html',
+      controller: 'cardController as vm',
+      resolve: {
+        getuser : function(UserService){
+          return UserService.getuser();
+        }
+      }
+    })
+    .when('/deckbox', {
+      templateUrl: '/views/templates/deckbox.html',
+      controller: 'cardController as vm',
+      resolve: {
+        getuser : function(UserService){
+          return UserService.getuser();
+        }
+      }
+    })
     .when('/register', {
       templateUrl: '/views/templates/register.html',
       controller: 'LoginController as vm'
