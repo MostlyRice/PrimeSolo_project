@@ -4,27 +4,17 @@ username varchar(80) not null UNIQUE,
 password varchar(240) not null
 );
 
-CREATE TABLE cards_table (
-id serial PRIMARY KEY,
+CREATE TABLE cards (
+id serial PRIMARY key,
 cardname VARCHAR (80),
 type VARCHAR(500),
 image path
 );
 
-CREATE TABLE wishlist_user (
+CREATE TABLE user_cards (
 user_id INT REFERENCES users(id),
-card_id INT REFERENCES cards_table(id),
-quantity INT
-);
-
-CREATE TABLE decklist_user (
-user_id INT REFERENCES users(id),
-card_id INT REFERENCES cards_table(id),
-quantity INT
-);
-
-CREATE TABLE trade_user (
-user_id INT REFERENCES users(id),
-card_id INT REFERENCES cards_table(id),
-quantity INT
+card_id INT REFERENCES cards(id),
+quantity INT,
+wishlist BOOLEAN,
+trades BOOLEAN
 );

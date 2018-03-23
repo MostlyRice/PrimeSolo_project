@@ -13,7 +13,7 @@ myApp.config(['$routeProvider', '$locationProvider', function($routeProvider, $l
     })
     .when('/search', {
       templateUrl: '/views/templates/search.html',
-      controller: 'searchController as vm',
+      controller: 'cardController as vm',
       resolve: {
         getuser : function(UserService){
           return UserService.getuser();
@@ -31,15 +31,6 @@ myApp.config(['$routeProvider', '$locationProvider', function($routeProvider, $l
     })
     .when('/wishlist', {
       templateUrl: '/views/templates/wishlist.html',
-      controller: 'cardController as vm',
-      resolve: {
-        getuser : function(UserService){
-          return UserService.getuser();
-        }
-      }
-    })
-    .when('/deckbox', {
-      templateUrl: '/views/templates/deckbox.html',
       controller: 'cardController as vm',
       resolve: {
         getuser : function(UserService){
