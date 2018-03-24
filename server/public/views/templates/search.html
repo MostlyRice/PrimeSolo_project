@@ -1,17 +1,14 @@
-<div class="container">
-  <label class="sr-only" for="searchQuery">Search for a card!</label>
-  <section ng-controller="cardController as vm">
-    <input ng-model="searchBar" type="text" placeholder ="searchBox">
-    <button type="submit" class="btn btn-primary my-1" ng-click="vm.searchApi(searchBar)">Search</button>
-    <h2>Search Results for</h2>
-    <div class="container">
-  <md-content  layout="row" layout-wrap
-   ng-repeat="card in vm.cardService.searchOut.cards"> 
-   <md-card flex-gt-xs="20" layout="column" >
-
+<div class="container" ng-controller="cardController as vm">
+  <md-input-container>
+      <label>Search</label>
+      <input ng-model="searchBar" type="text" placeholder ="">
+    </md-input-container>
+    <button mat-button ng-click="vm.searchApi(searchBar)">Search</button>
+    <div class="container" layout="row" layout-wrap>
+  <md-content ng-repeat="card in vm.cardService.searchOut.cards"> 
+   <md-card class="container" >
     <img ng-src="{{card.imageUrl}}">
    </md-card>
-
   </md-content>
 </div>
 </div>

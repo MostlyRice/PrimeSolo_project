@@ -25,7 +25,7 @@ myApp.service('cardService',['$http','$location', function($http, $location) {
     })
   }
 
-  self.addCardToCards = function() {
+  self.addCardToCards = function(data) {
     console.log();
     $http({
       method: 'POST',

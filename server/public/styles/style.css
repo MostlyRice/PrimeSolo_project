@@ -1,3 +1,16 @@
+.login-bg {
+  background: url(../images/MTG.jpg) no-repeat center center fixed;
+  background-size: contain;
+}
+
+.cardProfile {
+  max-width: 500px;
+}
+.profileImage{
+  width: 150;
+  height: 100;
+}
+
 body, html {
   margin: 0;
   padding: 0;
