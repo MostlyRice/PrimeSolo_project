@@ -2,17 +2,18 @@ myApp.service('cardService',['$http','$location', function($http, $location) {
   console.log('cardService loaded!');
 
   const self = this;
+
   self.tradeslist = { tradeslist: [] };
   self.wishlist = { wishlist: [] };
   self.decklist = { decklist: [] };
   self.searchOut = { cards: [] };
-  const mtgURL = 'https://api.magicthegathering.io/v1/cards?name=';
+  const mtgURL = 'https://api.magicthegathering.io/v1/cards?';
 
-  self.searchApi = function (searchBar){
-    console.log(searchBar);
+  self.searchApi = function (searchBar, searchParameter){
+    console.log(searchBar, searchParameter);
     $http({
       method: 'GET',
-      url: `${mtgURL}${searchBar}`
+      url: (`${mtgURL}${searchParameter}${searchBar}`)
     })
     .then(function(response){
       console.log('success in search', response);
@@ -24,6 +25,7 @@ myApp.service('cardService',['$http','$location', function($http, $location) {
       console.log('error in search', error);
     })
   }
+
 
   self.addCardToCards = function(data) {
     console.log();

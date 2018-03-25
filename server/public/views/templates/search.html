@@ -1,9 +1,33 @@
 <div class="container" ng-controller="cardController as vm">
+  <div>
+      <md-select ng-model="searchParameter" placeholder="Search Parameter" class="md-no-underline">
+          <md-option value="name=">Name</md-option>
+          <md-option value="subtypes=">Subtypes</md-option>
+        </md-select>
+</div>
   <md-input-container>
       <label>Search</label>
       <input ng-model="searchBar" type="text" placeholder ="">
+      <md-checkbox ng-model="data.cb1" aria-label="White">
+        White
+      </md-checkbox>
+      <md-checkbox ng-model="data.cb2" aria-label="Blue">
+        Blue
+      </md-checkbox>
+      <md-checkbox ng-model="data.cb3" aria-label="Black">
+        Black
+      </md-checkbox>
+      <md-checkbox ng-model="data.cb4" aria-label="Red">
+        Red
+      </md-checkbox>
+      <md-checkbox ng-model="data.cb5" aria-label="Green">
+        Green
+      </md-checkbox>
+      <md-checkbox ng-model="data.cb6" aria-label="Colorless">
+        Colorless
+      </md-checkbox>
     </md-input-container>
-    <button mat-button ng-click="vm.searchApi(searchBar)">Search</button>
+    <button mat-button ng-click="vm.searchApi(searchBar, searchParameter)">Search</button>
     <div class="container" layout="row" layout-wrap>
   <md-content ng-repeat="card in vm.cardService.searchOut.cards"> 
    <md-card class="container" >

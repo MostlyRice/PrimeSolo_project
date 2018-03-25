@@ -4,8 +4,8 @@ myApp.controller('cardController', ['cardService', function(cardService) {
     const self = this;
     self.cardService = cardService;
   
-    self.searchApi = (searchBar) => {
-    cardService.searchApi(searchBar);
+    self.searchApi = (searchBar, searchParameter) => {
+    cardService.searchApi(searchBar, searchParameter);
     
     }
   }]);
