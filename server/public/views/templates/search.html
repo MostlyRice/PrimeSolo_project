@@ -1,7 +1,8 @@
 <div class="container" ng-controller="cardController as vm">
   <div>
-      <md-select ng-model="searchParameter" placeholder="Search Parameter" class="md-no-underline">
+      <md-select ng-model="searchParameter" placeholder="Search Parameter" class="md-no-underline" required>
           <md-option value="name=">Name</md-option>
+          <md-option value="types=">Types</md-option>
           <md-option value="subtypes=">Subtypes</md-option>
         </md-select>
 </div>
@@ -31,6 +32,13 @@
     <div class="container" layout="row" layout-wrap>
   <md-content ng-repeat="card in vm.cardService.searchOut.cards"> 
    <md-card class="container" >
+     <section>
+       <md-select ng-model="cardOptions" placeholder="Options" class="md-no-underline">
+        <md-option value="tradelist">Add to Trades List</md-option>
+        <md-option value="wishlist">Add to Wish List</md-option>
+      </md-select>
+      <button mat-button ng-click="vm.addCard(addToList)">Add</button>
+    </section>
     <img ng-src="{{card.imageUrl}}">
    </md-card>
   </md-content>

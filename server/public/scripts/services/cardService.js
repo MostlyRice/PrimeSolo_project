@@ -3,6 +3,23 @@ myApp.service('cardService',['$http','$location', function($http, $location) {
 
   const self = this;
 
+  // self.selected = [color=white, color=blue, color=black, color=red, color=green, color=colorless];
+  // self.selectedParameters = [];
+
+  // self.toggle = function (item, list) {
+  //   var index = list.indexOf(item);
+  //   if (index > -1) {
+  //     list.splice(index, 1);
+  //   }
+  //   else {
+  //     list.push(item);
+  //   }
+  // };
+  // self.exists = function (item, list) {
+  //   return list.indexOf(item) > -1;
+  // };
+
+
   self.tradeslist = { tradeslist: [] };
   self.wishlist = { wishlist: [] };
   self.decklist = { decklist: [] };
