@@ -1,15 +1,15 @@
 <div class="container" ng-controller="cardController as vm">
-  <div>
-      <md-select ng-model="searchParameter" placeholder="Search Parameter" class="md-no-underline" required>
+  <!-- <div>
+      <md-select ng-model="searchParameter" placeholder="Search Parameter" class="md-no-underline" ng-required="true">
           <md-option value="name=">Name</md-option>
           <md-option value="types=">Types</md-option>
           <md-option value="subtypes=">Subtypes</md-option>
         </md-select>
-</div>
+</div> -->
   <md-input-container>
       <label>Search</label>
       <input ng-model="searchBar" type="text" placeholder ="">
-      <md-checkbox ng-model="data.cb1" aria-label="White">
+      <!-- <md-checkbox ng-model="data.cb1" aria-label="White">
         White
       </md-checkbox>
       <md-checkbox ng-model="data.cb2" aria-label="Blue">
@@ -23,24 +23,49 @@
       </md-checkbox>
       <md-checkbox ng-model="data.cb5" aria-label="Green">
         Green
-      </md-checkbox>
-      <md-checkbox ng-model="data.cb6" aria-label="Colorless">
-        Colorless
-      </md-checkbox>
+      </md-checkbox> -->
     </md-input-container>
-    <button mat-button ng-click="vm.searchApi(searchBar, searchParameter)">Search</button>
-    <div class="container" layout="row" layout-wrap>
+    <button mat-button ng-click="vm.searchApi(searchBar)" ng-required="true" >Search</button>
+  </div>
+    <!-- <div>
+        <button mat-button ng-click="vm.randomCard()" >Random Card!</button>
+    </div> -->
+
+  <div class="container" layout="row" layout-wrap>
   <md-content ng-repeat="card in vm.cardService.searchOut.cards"> 
-   <md-card class="container" >
+   <md-card ng-show="card.image_uris.normal">
      <section>
-       <md-select ng-model="cardOptions" placeholder="Options" class="md-no-underline">
+       <md-select ng-model="cardOptions" placeholder="Options" ng-required="true">
         <md-option value="tradelist">Add to Trades List</md-option>
         <md-option value="wishlist">Add to Wish List</md-option>
+
       </md-select>
-      <button mat-button ng-click="vm.addCard(addToList)">Add</button>
+      <button mat-button ng-click="vm.addCardToList(cardOptions, card)" style="display:block;
+      margin-left:auto;
+      margin-right:auto;">Add</button>
     </section>
-    <img ng-src="{{card.imageUrl}}">
+    <img ng-src="{{card.image_uris.normal}}" style="max-height:60%; max-width:60%; display:block;
+    margin-left:auto;
+    margin-right:auto;">
    </md-card>
   </md-content>
 </div>
+<!-- <div class="container" layout="row" layout-wrap>
+    <md-content ng-repeat="random in vm.cardService.randomCard.random"> 
+     <md-card ng-show="random.image_uris.normal">
+       <section>
+         <md-select ng-model="cardOptions" placeholder="Options">
+          <md-option value="tradelist">Add to Trades List</md-option>
+          <md-option value="wishlist">Add to Wish List</md-option>
+        </md-select>
+        <button mat-button ng-click="vm.addCardToList(addToList)" style="display:block;
+        margin-left:auto;
+        margin-right:auto;">Add</button>
+      </section>
+      <img ng-src="{{random.image_uris.normal}}" style="max-height:60%; max-width:60%; display:block;
+      margin-left:auto;
+      margin-right:auto;">
+     </md-card>
+    </md-content>
+  </div> -->
 </div>
