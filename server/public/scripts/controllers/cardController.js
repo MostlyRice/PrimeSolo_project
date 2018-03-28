@@ -13,8 +13,8 @@ myApp.controller('cardController', ['cardService', function(cardService) {
       cardService.randomCard();
   }//Pulls up a random Magic card to display
 
-    self.addCardToList = (data, card) =>{
-      cardService.addCardToList(data, card);
+    self.addCardToList = (data, card, numberOfCards) =>{
+      cardService.addCardToList(data, card, numberOfCards);
   }//Adds card to the database
   }]);
   

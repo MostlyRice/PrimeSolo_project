@@ -1,7 +1,9 @@
-myApp.service('cardService',['$http','$location', function($http, $location) {
+myApp.service('cardService',['$http','$location','UserService', function($http, $location, UserService) {
   console.log('cardService loaded!');
 
   const self = this;
+  self.userService = UserService;
+  self.userObject = UserService.userObject;
 
   self.tradeslist = { tradeslist: [] };
   self.wishlist = { wishlist: [] };
@@ -40,13 +42,17 @@ myApp.service('cardService',['$http','$location', function($http, $location) {
     })
   }
 
-  self.addCardToList = function(data, card) {
-    console.log(data, card);
+  self.addCardToList = function(data, card, numberOfCards) {
+  self.userService.getuser();
+    console.log(data, card, numberOfCards);
     $http({
       method: 'POST',
       url: '/cards',
-      data: {data:data,
-             card:card}
+      data: {
+            userID: self.userObject.id,
+            data:data,
+            card:card,
+            numberOfCards:numberOfCards}
     }).then(function (response) {
       $location.url('/search');
       self.newItem = {};

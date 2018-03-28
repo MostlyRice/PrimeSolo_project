@@ -27,9 +27,9 @@
     </md-input-container>
     <button mat-button ng-click="vm.searchApi(searchBar)" ng-required="true" >Search</button>
   </div>
-    <!-- <div>
+    <div>
         <button mat-button ng-click="vm.randomCard()" >Random Card!</button>
-    </div> -->
+    </div>
 
   <div class="container" layout="row" layout-wrap>
   <md-content ng-repeat="card in vm.cardService.searchOut.cards"> 
@@ -38,9 +38,9 @@
        <md-select ng-model="cardOptions" placeholder="Options" ng-required="true">
         <md-option value="tradelist">Add to Trades List</md-option>
         <md-option value="wishlist">Add to Wish List</md-option>
-
       </md-select>
-      <button mat-button ng-click="vm.addCardToList(cardOptions, card)" style="display:block;
+      <input ng-model="numberOfCards" type="integer" placeholder ="Quantity">
+      <button mat-button ng-click="vm.addCardToList(cardOptions, card, numberOfCards)" style="display:block;
       margin-left:auto;
       margin-right:auto;">Add</button>
     </section>
@@ -52,7 +52,7 @@
 </div>
 <!-- <div class="container" layout="row" layout-wrap>
     <md-content ng-repeat="random in vm.cardService.randomCard.random"> 
-     <md-card ng-show="random.image_uris.normal">
+     <md-card ng-show="card.image_uris.normal">
        <section>
          <md-select ng-model="cardOptions" placeholder="Options">
           <md-option value="tradelist">Add to Trades List</md-option>
@@ -62,7 +62,7 @@
         margin-left:auto;
         margin-right:auto;">Add</button>
       </section>
-      <img ng-src="{{random.image_uris.normal}}" style="max-height:60%; max-width:60%; display:block;
+      <img ng-src="{{card.image_uris.normal}}" style="max-height:60%; max-width:60%; display:block;
       margin-left:auto;
       margin-right:auto;">
      </md-card>
