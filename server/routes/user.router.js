@@ -31,14 +31,14 @@ router.post('/register', (req, res, next) => {
   };
   console.log('new user:', saveUser);
   pool.query('INSERT INTO users (username, password) VALUES ($1, $2) RETURNING id',
-    [saveUser.username, saveUser.password], (err, result) => {
-      if (err) {
-        console.log("Error inserting data: ", err);
-        res.sendStatus(500);
-      } else {
-        res.sendStatus(201);
-      }
-    });
+  [saveUser.username, saveUser.password], (err, result) => {
+    if (err) {
+      console.log("Error inserting data: ", err);
+      res.sendStatus(500);
+    } else {
+      res.sendStatus(201);
+    }
+  });
 });
 
 // Handles login form authenticate/login POST

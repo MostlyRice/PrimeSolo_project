@@ -5,9 +5,6 @@ myApp.service('cardService',['$http','$location','UserService', function($http, 
   self.userService = UserService;
   self.userObject = UserService.userObject;
 
-  self.tradeslist = { tradeslist: [] };
-  self.wishlist = { wishlist: [] };
-  self.randomCard = { random: [] };
   self.searchOut = { cards: [] };
   const mtgURL = 'https://api.scryfall.com/cards/search?q=';
 
@@ -15,7 +12,7 @@ myApp.service('cardService',['$http','$location','UserService', function($http, 
     console.log(searchBar);
     $http({
       method: 'GET',
-      url: (`${mtgURL}${searchBar}`+`&unique=art`)
+      url: (`${mtgURL}${searchBar}`+`&unique=prints`)
     })
     .then(function(response){
       console.log('success in search', response.data.data);
@@ -25,40 +22,25 @@ myApp.service('cardService',['$http','$location','UserService', function($http, 
     .catch(function(error){
       console.log('error in search', error);
     })
-  }
-
-  self.randomCard = function (){
-    $http({
-      method: 'GET',
-      url: 'https://api.scryfall.com/cards/random'
-    })
-    .then(function(response){
-      console.log('success in randomCard', response.data);
-      console.log(response.data, 'Magic The Gathering Random result!!!');
-      self.randomCard.random = response.data;
-    })
-    .catch(function(error){
-      console.log('error in randomCard', error);
-    })
-  }
+  }//Searchs for cards in the Scryfall API
 
   self.addCardToList = function(data, card, numberOfCards) {
-  self.userService.getuser();
+    self.userService.getuser();
     console.log(data, card, numberOfCards);
     $http({
       method: 'POST',
       url: '/cards',
       data: {
-            userID: self.userObject.id,
-            data:data,
-            card:card,
-            numberOfCards:numberOfCards}
-    }).then(function (response) {
-      $location.url('/search');
-      self.newItem = {};
-    }).catch(function (error) {
-      console.log('post error', error);
-    })
-  }
+        userID: self.userObject.id,
+        data:data,
+        card:card,
+        numberOfCards:numberOfCards}
+      }).then(function (response) {
+        $location.url('/search');
+        self.newItem = {};
+      }).catch(function (error) {
+        console.log('post error', error);
+      })
+    }//Adds cards to the Cards Table
 
-}]);
+  }]);

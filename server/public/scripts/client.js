@@ -20,9 +20,18 @@ myApp.config(['$routeProvider', '$locationProvider', function($routeProvider, $l
         }
       }
     })
+    .when('/havelist', {
+      templateUrl: '/views/templates/havelist.html',
+      controller: 'listController as vm',
+      resolve: {
+        getuser : function(UserService){
+          return UserService.getuser();
+        }
+      }
+    })
     .when('/trades', {
       templateUrl: '/views/templates/trades.html',
-      controller: 'cardController as vm',
+      controller: 'listController as vm',
       resolve: {
         getuser : function(UserService){
           return UserService.getuser();
@@ -31,7 +40,7 @@ myApp.config(['$routeProvider', '$locationProvider', function($routeProvider, $l
     })
     .when('/wishlist', {
       templateUrl: '/views/templates/wishlist.html',
-      controller: 'cardController as vm',
+      controller: 'listController as vm',
       resolve: {
         getuser : function(UserService){
           return UserService.getuser();

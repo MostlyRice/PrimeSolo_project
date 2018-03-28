@@ -1,76 +1,40 @@
-<div class="container" ng-controller="cardController as vm">
-  <!-- <div>
-      <md-select ng-model="searchParameter" placeholder="Search Parameter" class="md-no-underline" ng-required="true">
-          <md-option value="name=">Name</md-option>
-          <md-option value="types=">Types</md-option>
-          <md-option value="subtypes=">Subtypes</md-option>
-        </md-select>
-</div> -->
-  <md-input-container>
-      <label>Search</label>
-      <input ng-model="searchBar" type="text" placeholder ="">
-      <!-- <md-checkbox ng-model="data.cb1" aria-label="White">
-        White
-      </md-checkbox>
-      <md-checkbox ng-model="data.cb2" aria-label="Blue">
-        Blue
-      </md-checkbox>
-      <md-checkbox ng-model="data.cb3" aria-label="Black">
-        Black
-      </md-checkbox>
-      <md-checkbox ng-model="data.cb4" aria-label="Red">
-        Red
-      </md-checkbox>
-      <md-checkbox ng-model="data.cb5" aria-label="Green">
-        Green
-      </md-checkbox> -->
-    </md-input-container>
-    <button mat-button ng-click="vm.searchApi(searchBar)" ng-required="true" >Search</button>
-  </div>
-    <div>
-        <button mat-button ng-click="vm.randomCard()" >Random Card!</button>
-    </div>
-
-  <div class="container" layout="row" layout-wrap>
-  <md-content ng-repeat="card in vm.cardService.searchOut.cards"> 
-   <md-card ng-show="card.image_uris.normal">
-     <section>
-       <md-select ng-model="cardOptions" placeholder="Tradelist or Wishlist" ng-required="true">
-        <md-option value="tradelist">Add to Trades List</md-option>
-        <md-option value="wishlist">Add to Wish List</md-option>
-      </md-select>
-      <input ng-model="numberOfCards" type="integer" placeholder ="Quantity">
-      <button mat-button ng-click="vm.addCardToList(cardOptions, card, numberOfCards)" style="display:block;
-      margin-left:auto;
-      margin-right:auto;">Add</button>
-    </section>
-    <img ng-src="{{card.image_uris.normal}}" style="max-height:60%; max-width:60%; display:block;
-    margin-left:auto;
-    margin-right:auto;">
-    <section 
-    class="thicker"
-    style="font-weight: bold; font-size: 150%; display:block; margin-left:auto; margin-right:auto;">
-    ${{card.usd}} USD
-  </section>
-   </md-card>
-  </md-content>
+<div flex class="md-padding"ng-controller="cardController as vm">
+  <div>
+    <!-- <md-select ng-model="searchParameter" placeholder="Search Parameter" class="md-no-underline">
+    <md-option value="">Name</md-option>
+    <md-option value="types=">Types</md-option>
+    <md-option value="subtypes=">Subtypes</md-option>
+  </md-select> -->
 </div>
-<!-- <div class="container" layout="row" layout-wrap>
-    <md-content ng-repeat="random in vm.cardService.randomCard.random"> 
-     <md-card ng-show="card.image_uris.normal">
-       <section>
-         <md-select ng-model="cardOptions" placeholder="Options">
+<md-input-container>
+  <label>Search</label>
+  <input ng-model="searchBar" type="text" placeholder ="">
+</md-input-container>
+<button mat-button ng-click="vm.searchApi(searchBar)" ng-required="true" >Search</button>
+</div>
+<div class="container" layout="row" layout-wrap>
+  <md-content ng-repeat="card in vm.cardService.searchOut.cards">
+    <md-card ng-show="card.image_uris.normal">
+      <section>
+        <md-select ng-model="cardOptions" placeholder="Tradelist or Wishlist" ng-required="true">
           <md-option value="tradelist">Add to Trades List</md-option>
           <md-option value="wishlist">Add to Wish List</md-option>
+          <md-option value="havelist">Add to Have List</md-option>
         </md-select>
-        <button mat-button ng-click="vm.addCardToList(addToList)" style="display:block;
+        <input ng-model="numberOfCards" type="integer" placeholder ="Quantity">
+        <button mat-button ng-click="vm.addCardToList(cardOptions, card, numberOfCards)" style="display:block;
         margin-left:auto;
         margin-right:auto;">Add</button>
       </section>
       <img ng-src="{{card.image_uris.normal}}" style="max-height:60%; max-width:60%; display:block;
       margin-left:auto;
       margin-right:auto;">
-     </md-card>
-    </md-content>
-  </div> -->
+      <h3
+      class="thicker"
+      style="font-weight: bold; font-size: 150%; display:block; margin-left:auto; margin-right:auto;">
+      ${{card.usd}} USD
+    </h3>
+  </md-card>
+</md-content>
+</div>
 </div>

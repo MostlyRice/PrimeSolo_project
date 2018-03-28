@@ -8,13 +8,15 @@ CREATE TABLE cards (
 id serial PRIMARY key,
 cardname VARCHAR (80),
 type VARCHAR(500),
-image path
+usd VARCHAR,
+image VARCHAR
 );
 
 CREATE TABLE user_cards (
 user_id INT REFERENCES users(id),
 card_id INT REFERENCES cards(id),
 quantity INT,
+havelist BOOLEAN,
 wishlist BOOLEAN,
-trades BOOLEAN
+tradelist BOOLEAN
 );
