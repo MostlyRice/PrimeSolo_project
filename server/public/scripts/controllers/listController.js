@@ -11,5 +11,8 @@ myApp.controller('listController', ['listService', function(listService) {
     self.getTradelist();
     self.getWishlist();
 
+    self.haveList = listService.haveList
+    self.tradeList = listService.tradeList
+    self.wishList = listService.wishList
   }]);
   

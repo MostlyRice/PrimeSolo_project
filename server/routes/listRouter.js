@@ -40,10 +40,10 @@ router.get('/wishlist', function(request, response){
   const query = 'SELECT * FROM user_cards JOIN cards ON cards.id = user_cards.card_id WHERE wishlist=true;';
   pool.query(query)
   .then(function(result){
-    console.log('Results from the wishlist',result);
+    console.log('Results from the Wishlist',result);
     response.send(result.rows);
   }).catch(function(error){
-    console.log('there was a problem...with the wishlist router', error);
+    console.log('there was a problem...with the Wishlist Touter', error);
     response.sendStatus(500);
   });
 });

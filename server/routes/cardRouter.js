@@ -7,7 +7,7 @@ const router = express.Router();
 router.post('/', function(request, response){
   console.log('In Card post', request.body);
   const query = 'INSERT INTO cards (cardname, type, usd, image) VALUES ($1, $2, $3, $4) RETURNING cards.id;';
-  pool.query(query, [request.body.card.name, request.body.card.type_line, request.body.card.usd, request.body.card.image_uris.png])
+  pool.query(query, [request.body.card.name, request.body.card.type_line, request.body.card.usd, request.body.card.image_uris.normal])
   .then(function(result){//Added to the cards table
 
     let numberOfCards = request.body.numberOfCards;

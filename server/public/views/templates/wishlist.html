@@ -1,26 +1,10 @@
-<div class="WishlistContainer" ng-controller="listController as vm">
-        <mat-table #table>
-      
-          <!-- Position Column -->
-          <ng-container matColumnDef="position">
-            <mat-header-cell *matHeaderCellDef> No. </mat-header-cell>
-            <mat-cell *matCellDef="let element"> {{element.position}} </mat-cell>
-          </ng-container>
-      
-          <!-- Name Column -->
-          <ng-container matColumnDef="name">
-            <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
-            <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
-          </ng-container>
-      
-          <!-- Quantity Column -->
-          <ng-container matColumnDef="symbol">
-            <mat-header-cell *matHeaderCellDef> Quantity </mat-header-cell>
-            <mat-cell *matCellDef="let element"> {{element.symbol}} </mat-cell>
-          </ng-container>
-      
-          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-          <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-        </mat-table>
-      </div>
-    </div>
+<div class="WishContainer">
+        <div class="container" layout="row" layout-wrap>
+          <md-content ng-repeat="wish in vm.wishList.wishlist">
+              <img ng-src="{{wish.image}}" style="max-height:60%; max-width:60%; display:block;
+              margin-left:auto;
+              margin-right:auto;">
+        </md-content>
+        </div>
+        </div>
+        

@@ -14,7 +14,7 @@ myApp.service('listService',['$http','$location','UserService', function($http, 
     })
     .then(function(response){
       console.log('success in getting Havelist from the database', response.data);
-      self.haveList = response.data;
+      self.haveList.havelist = response.data;
     })
     .catch(function(error){
       console.log('error in Havelist', error);
@@ -29,7 +29,7 @@ myApp.service('listService',['$http','$location','UserService', function($http, 
     })
     .then(function(response){
       console.log('success in getting Tradelist from the database', response.data);
-      self.tradeList = response.data;
+      self.tradeList.tradelist = response.data;
     })
     .catch(function(error){
       console.log('error in Tradelist', error);
@@ -40,11 +40,11 @@ myApp.service('listService',['$http','$location','UserService', function($http, 
     console.log('Getting Wishlist from the Database');
     $http({
       method: 'GET',
-      url: `/list/wishlist`,
+      url: `/list/wishlist`
     })
     .then(function(response){
-      console.log('Success from getting Wishlist from the database', response.data.data);
-      self.wishList = response.data;
+      console.log('success in getting wishlist from the database', response.data);
+      self.wishList.wishlist = response.data;
     })
     .catch(function(error){
       console.log('error in Wishlist', error);
