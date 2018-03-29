@@ -3,7 +3,6 @@ myApp.service('cardService',['$http','$location','UserService', function($http, 
 
   const self = this;
   self.userService = UserService;
-  self.userObject = UserService.userObject;
 
   self.searchOut = { cards: [] };
   const mtgURL = 'https://api.scryfall.com/cards/search?q=';
@@ -31,7 +30,7 @@ myApp.service('cardService',['$http','$location','UserService', function($http, 
       method: 'POST',
       url: '/cards',
       data: {
-        userID: self.userObject.id,
+        userID: self.userService.userObject.id,
         data:data,
         card:card,
         numberOfCards:numberOfCards}

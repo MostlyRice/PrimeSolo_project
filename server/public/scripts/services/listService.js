@@ -2,15 +2,17 @@ myApp.service('listService',['$http','$location','UserService', function($http, 
   console.log('listService loaded!');
 
   const self = this;
+  self.userService = UserService;
+
   self.haveList = { havelist: [] };
   self.tradeList = { tradelist: [] };
   self.wishList = { wishlist: [] };
-
+  
   self.getHavelist = function (){
-    console.log('Getting Havelist from the Database');
+    console.log('Getting Havelist from the Database', self.userService.userObject.id);
     $http({
       method: 'GET',
-      url: `/list/havelist`
+      url: `/list/havelist/${self.userService.userObject.id}`
     })
     .then(function(response){
       console.log('success in getting Havelist from the database', response.data);

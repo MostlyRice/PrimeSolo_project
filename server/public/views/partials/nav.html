@@ -1,12 +1,23 @@
-<div class="navbar">
-  <div class="container">
-    <ul class="navlist">
-      <li><a href="#!user">User Home</a></li>
-      <li><a href="#!search">Search</a></li>
-      <li><a href="#!havelist">Havelist</a></li>
-      <li><a href="#!trades">Tradelist</a></li>
-      <li><a href="#!wishlist">Wishlist</a></li>
-      <li><a href="#!info">Info</a></li>
-    </ul>
-  </div>
-</div>
+<md-nav-bar
+    md-no-ink-bar="disableInkBar"
+    md-selected-nav-item="currentNavItem"
+    nav-bar-aria-label="navigation links">
+    <md-nav-item md-nav-href="#!home" name="Home">
+        Home
+    </md-nav-item>
+    <md-nav-item md-nav-href="#!search" name="Search">
+        Search
+    </md-nav-item>
+    <md-nav-item md-nav-href="#!havelist" name="Havelist">
+        Havelist
+    </md-nav-item>
+    <md-nav-item md-nav-href="#!trades" name="Tradelist">
+        Tradelist
+    </md-nav-item>
+    <md-nav-item md-nav-href="#!wishlist" name="Wishlist">
+        Wishlist
+    </md-nav-item>
+    <md-nav-item md-nav-href="#!info" name="Info">
+        Info
+    </md-nav-item>
+</md-nav-bar>

@@ -1,11 +1,21 @@
 <div class="HavesContainer">
-  <div class="container" layout="row" layout-wrap>
 
-    <md-content ng-repeat="haves in vm.haveList.havelist">
-   
-        <img ng-src="{{haves.image}}" style="max-height:40%; max-width:40%;">
-
-  </md-content>
-  </div>
-  </div>
+    <div class="container" layout="row"  layout-wrap >
   
+      <md-content ng-repeat="haves in vm.haveList.havelist" style="margin:10px;" flex="25"> 
+        <section><h3
+          class="thicker"
+          style="font-weight: bold; font-size: 150%; display:block; margin-left:auto; margin-right:auto; text-align: center">
+          {{haves.quantity}}x
+        </h3>
+      </section>
+          <img ng-src="{{haves.image}}" style="max-width: 100%;" >
+          <section><h3
+            class="thicker"
+            style="font-weight: bold; font-size: 150%; display:block; margin-left:auto; margin-right:auto; text-align: center">
+            ${{haves.usd}} USD
+          </h3>
+        </section>
+      </md-content>
+    </div>
+  </div>

@@ -5,10 +5,10 @@ const pool = require('../modules/pool.js');
 const router = express.Router();
 
 // START GET ROUTE FOR HAVELIST
-router.get('/havelist', function(request, response){
-  console.log('In Card post', request.body);
-  const query = 'SELECT * FROM user_cards JOIN cards ON cards.id = user_cards.card_id WHERE havelist=true;';
-  pool.query(query)
+router.get('/havelist/:id', function(request, response){
+  const user_id = request.params.id;
+  const query = 'SELECT * FROM user_cards JOIN cards ON cards.id = user_cards.card_id WHERE havelist=true AND user_cards.user_id =$1;';
+  pool.query(query, [user_id])
   .then(function(result){
     console.log('Results from the Havelist',result);
     response.send(result.rows);
@@ -20,25 +20,25 @@ router.get('/havelist', function(request, response){
 // END GET ROUTE FOR HAVELIST
 
 // START GET ROUTE FOR TRADELIST
-router.get('/tradelist', function(request, response){
-  console.log('In Card post', request.body);
-  const query = 'SELECT * FROM user_cards JOIN cards ON cards.id = user_cards.card_id WHERE tradelist=true;';
-  pool.query(query)
+router.get('/tradelist/:id', function(request, response){
+  const user_id = request.params.id;
+  const query = 'SELECT * FROM user_cards JOIN cards ON cards.id = user_cards.card_id WHERE tradelist=true AND user_cards.user_id =$1;';
+  pool.query(query, [user_id])
   .then(function(result){
     console.log('Results from the Tradelist',result);
     response.send(result.rows);
   }).catch(function(error){
-    console.log('there was a problem...with the tradelist Touter', error);
+    console.log('there was a problem...with the Tradelist router', error);
     response.sendStatus(500);
   });
 });
 // END GET ROUTE FOR TRADELIST
 
 // START GET ROUTE FOR WISHLIST
-router.get('/wishlist', function(request, response){
-  console.log('In Card post', request.body);
-  const query = 'SELECT * FROM user_cards JOIN cards ON cards.id = user_cards.card_id WHERE wishlist=true;';
-  pool.query(query)
+router.get('/wishlist/:id', function(request, response){
+  const user_id = request.params.id;
+  const query = 'SELECT * FROM user_cards JOIN cards ON cards.id = user_cards.card_id WHERE wishlist=true AND user_cards.user_id =$1;';
+  pool.query(query,[user_id])
   .then(function(result){
     console.log('Results from the Wishlist',result);
     response.send(result.rows);
@@ -46,6 +46,7 @@ router.get('/wishlist', function(request, response){
     console.log('there was a problem...with the Wishlist Touter', error);
     response.sendStatus(500);
   });
+
 });
 // END GET ROUTE FOR WISHLIST
 

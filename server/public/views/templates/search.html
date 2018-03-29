@@ -10,10 +10,10 @@
   <label>Search</label>
   <input ng-model="searchBar" type="text" placeholder ="">
 </md-input-container>
-<button mat-button ng-click="vm.searchApi(searchBar)" ng-required="true" >Search</button>
+<button mat-button ng-click="vm.searchApi(searchBar)" ng-required="true" style="background-color: #008CBA;">Search</button>
 </div>
-<div class="container" layout="row" layout-wrap>
-  <md-content ng-repeat="card in vm.cardService.searchOut.cards">
+<div class="container" layout="row"  layout-wrap>
+  <md-content ng-repeat="card in vm.cardService.searchOut.cards" >
     <md-card ng-show="card.image_uris.normal">
       <section>
         <md-select ng-model="cardOptions" placeholder="Tradelist or Wishlist" ng-required="true">
@@ -22,18 +22,23 @@
           <md-option value="havelist">Add to Have List</md-option>
         </md-select>
         <input ng-model="numberOfCards" type="integer" placeholder ="Quantity">
-        <button mat-button ng-click="vm.addCardToList(cardOptions, card, numberOfCards)" style="display:block;
-        margin-left:auto;
-        margin-right:auto;">Add</button>
-      </section>
       <img ng-src="{{card.image_uris.normal}}" style="max-height:60%; max-width:60%; display:block;
       margin-left:auto;
       margin-right:auto;">
+      <section style="text-align: center">Set: {{card.set_name}}</section>
       <h3
       class="thicker"
-      style="font-weight: bold; font-size: 150%; display:block; margin-left:auto; margin-right:auto;">
-      ${{card.usd}} USD
+      style="font-weight: bold; font-size: 150%; display:block; text-align: center">
+      ${{card.usd}} USD 
     </h3>
+      <button mat-button ng-click="vm.addCardToList(cardOptions, card, numberOfCards)" style="display:block;
+      margin-left:auto;
+      margin-right:auto;
+      background-color: #4CAF50;
+      border-radius: 12px;
+      font-size: 16px;">Add</button>
+    </section>
+   
   </md-card>
 </md-content>
 </div>
