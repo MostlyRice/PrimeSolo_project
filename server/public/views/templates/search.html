@@ -10,13 +10,13 @@
   <label>Search</label>
   <input ng-model="searchBar" type="text" placeholder ="">
 </md-input-container>
-<button mat-button ng-click="vm.searchApi(searchBar)" ng-required="true" style="background-color: #008CBA;">Search</button>
+<md-button ng-click="vm.searchApi(searchBar)" md-no-ink class="md-primary">Search</md-button>
 </div>
 <div class="container" layout="row"  layout-wrap>
   <md-content ng-repeat="card in vm.cardService.searchOut.cards" >
     <md-card ng-show="card.image_uris.normal">
       <section>
-        <md-select ng-model="cardOptions" placeholder="Tradelist or Wishlist" ng-required="true">
+        <md-select ng-model="cardOptions" placeholder="Add To List" ng-required="true">
           <md-option value="tradelist">Add to Trades List</md-option>
           <md-option value="wishlist">Add to Wish List</md-option>
           <md-option value="havelist">Add to Have List</md-option>

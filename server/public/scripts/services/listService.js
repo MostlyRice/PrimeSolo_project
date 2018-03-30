@@ -7,9 +7,28 @@ myApp.service('listService',['$http','$location','UserService', function($http, 
   self.haveList = { havelist: [] };
   self.tradeList = { tradelist: [] };
   self.wishList = { wishlist: [] };
+
+
+  self.calculateCollectionTotal = function(){
+    let totalCollection = 0;
+    for (let card of self.haveList.havelist) { 
+      let cardTotal = (card.usd * card.quantity)
+      totalCollection += cardTotal
+    }
+    return totalCollection
+  }//Calculates the monetary value of the collection
+
+
+  // self.calculateCardCalcultion = function(){
+  //   let totalCollection = 0;
+  //   for (let card of self.haveList.havelist) { 
+  //     totalCollection += cardTotal
+  //   }
+  //   return totalCollection;
+  // }//Calculates the monetary value of the collection
   
   self.getHavelist = function (){
-    console.log('Getting Havelist from the Database', self.userService.userObject.id);
+    console.log('Getting Havelist from the Database');
     $http({
       method: 'GET',
       url: `/list/havelist/${self.userService.userObject.id}`
@@ -17,6 +36,9 @@ myApp.service('listService',['$http','$location','UserService', function($http, 
     .then(function(response){
       console.log('success in getting Havelist from the database', response.data);
       self.haveList.havelist = response.data;
+      self.calculateCollectionTotal();
+      console.log('calculate Total', self.calculateCollectionTotal());
+
     })
     .catch(function(error){
       console.log('error in Havelist', error);
@@ -27,7 +49,7 @@ myApp.service('listService',['$http','$location','UserService', function($http, 
     console.log('Getting Tradelist from the Database');
     $http({
       method: 'GET',
-      url: `/list/tradelist`
+      url: `/list/tradelist/${self.userService.userObject.id}`
     })
     .then(function(response){
       console.log('success in getting Tradelist from the database', response.data);
@@ -42,7 +64,7 @@ myApp.service('listService',['$http','$location','UserService', function($http, 
     console.log('Getting Wishlist from the Database');
     $http({
       method: 'GET',
-      url: `/list/wishlist`
+      url: `/list/wishlist/${self.userService.userObject.id}`
     })
     .then(function(response){
       console.log('success in getting wishlist from the database', response.data);

@@ -1,3 +1,4 @@
+
 const express = require('express');
 const encryptLib = require('../modules/encryption');
 const isAuthenticated = require('../modules/isAuthenticated');
@@ -5,10 +6,9 @@ const pool = require('../modules/pool.js');
 const router = express.Router();
 
 router.post('/', function(request, response){
-  if (request.isAuthenticated()){
   console.log('In Card post', request.body);
   const query = 'INSERT INTO cards (cardname, type, set_name, usd, image) VALUES ($1, $2, $3, $4, $5) RETURNING cards.id;';
-  pool.query(query, [request.body.card.name, request.body.card.type_line, request.body.card.usd, request.body.card.image_uris.normal])
+  pool.query(query, [request.body.card.name, request.body.card.type_line, request.body.card.set_name, request.body.card.usd, request.body.card.image_uris.normal])
   .then(function(result){//Added to the cards table
 
     let numberOfCards = request.body.numberOfCards;
@@ -61,7 +61,6 @@ router.post('/', function(request, response){
       console.log('there was a problem', error);
       response.sendStatus(500);
     });
-  }
   })//If it's in the tradelist, then it's added in the User_cards
 
   module.exports = router;
