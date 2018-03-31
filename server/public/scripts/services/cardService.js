@@ -11,7 +11,7 @@ myApp.service('cardService',['$http','$location','UserService', function($http, 
     console.log(searchBar);
     $http({
       method: 'GET',
-      url: (`${mtgURL}${searchBar}`+`&unique=prints`)
+      url: (`${mtgURL}${searchBar}&unique=prints`)
     })
     .then(function(response){
       console.log('success in search', response.data.data);
