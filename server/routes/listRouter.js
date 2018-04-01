@@ -7,7 +7,7 @@ const router = express.Router();
 // START GET ROUTE FOR HAVELIST
 router.get('/havelist/:id', function(request, response){
   const user_id = request.params.id;
-  const query = 'SELECT * FROM user_cards JOIN cards ON cards.id = user_cards.card_id WHERE havelist=true AND user_cards.user_id =$1;';
+  const query = 'SELECT * FROM user_cards JOIN cards ON cards.id = user_cards.card_id WHERE havelist=true AND user_cards.user_id =$1 ORDER BY type;';
   pool.query(query, [user_id])
   .then(function(result){
     console.log('Results from the Havelist',result);
@@ -22,7 +22,7 @@ router.get('/havelist/:id', function(request, response){
 // START GET ROUTE FOR TRADELIST
 router.get('/tradelist/:id', function(request, response){
   const user_id = request.params.id;
-  const query = 'SELECT * FROM user_cards JOIN cards ON cards.id = user_cards.card_id WHERE tradelist=true AND user_cards.user_id =$1;';
+  const query = 'SELECT * FROM user_cards JOIN cards ON cards.id = user_cards.card_id WHERE tradelist=true AND user_cards.user_id =$1 ORDER BY type;';
   pool.query(query, [user_id])
   .then(function(result){
     console.log('Results from the Tradelist',result);
@@ -38,7 +38,7 @@ router.get('/tradelist/:id', function(request, response){
 // START GET ROUTE FOR WISHLIST
 router.get('/wishlist/:id', function(request, response){
   const user_id = request.params.id;
-  const query = 'SELECT * FROM user_cards JOIN cards ON cards.id = user_cards.card_id WHERE wishlist=true AND user_cards.user_id =$1;';
+  const query = 'SELECT * FROM user_cards JOIN cards ON cards.id = user_cards.card_id WHERE wishlist=true AND user_cards.user_id =$1 ORDER BY type;';
   pool.query(query, [user_id])
   .then(function(result){
     console.log('Results from the Wishlist',result);

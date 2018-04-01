@@ -5,18 +5,16 @@ const isAuthenticated = require('../modules/isAuthenticated');
 const pool = require('../modules/pool.js');
 const router = express.Router();
 
-router.post('/', function(request, response){
-  console.log('In Card post', request.body);
+router.post('/', function(request, response){ 
   const query = 'INSERT INTO cards (cardname, type, set_name, usd, image) VALUES ($1, $2, $3, $4, $5) RETURNING cards.id;';
   pool.query(query, [request.body.card.name, request.body.card.type_line, request.body.card.set_name, request.body.card.usd, request.body.card.image_uris.normal])
   .then(function(result){//Added to the cards table
 
-    let numberOfCards = request.body.numberOfCards;
+    let usd = parseFloat(request.body.card.usd);
+    let numberOfCards = parseFloat(request.body.numberOfCards);
+    let cardTotals = (usd * numberOfCards).toFixed(2);
     let userID = request.body.userID;
     let cardID = result.rows[0].id;
-    console.log('card.id', cardID);
-    console.log('user.id', userID);
-    console.log('numberOfCards', numberOfCards);
     let tradelist = false;
     let wishlist = false;
     let havelist = false;
@@ -24,8 +22,8 @@ router.post('/', function(request, response){
 
     if (request.body.data == 'havelist'){
       havelist = true;
-      const query = 'INSERT INTO user_cards (user_id, card_id, quantity, tradelist, wishlist, havelist) VALUES ($1, $2, $3, $4, $5, $6);';
-      pool.query(query, [userID, cardID, numberOfCards, tradelist, wishlist, havelist])
+      const query = 'INSERT INTO user_cards (user_id, card_id, quantity, cardtotals, tradelist, wishlist, havelist) VALUES ($1, $2, $3, $4, $5, $6, $7);';
+      pool.query(query, [userID, cardID, numberOfCards, cardTotals, tradelist, wishlist, havelist])
       .then(function(result){
         response.sendStatus(200);
       }).catch(function(error){
@@ -36,8 +34,8 @@ router.post('/', function(request, response){
 
     else if (request.body.data == 'wishlist'){
       wishlist = true;
-      const query = 'INSERT INTO user_cards (user_id, card_id, quantity, tradelist, wishlist, havelist) VALUES ($1, $2, $3, $4, $5, $6);';
-      pool.query(query, [userID, cardID, numberOfCards, tradelist, wishlist, havelist])
+      const query = 'INSERT INTO user_cards (user_id, card_id, quantity, cardtotals, tradelist, wishlist, havelist) VALUES ($1, $2, $3, $4, $5, $6, $7);';
+      pool.query(query, [userID, cardID, numberOfCards, cardTotals, tradelist, wishlist, havelist])
       .then(function(result){
         response.sendStatus(200);
       }).catch(function(error){
@@ -48,8 +46,8 @@ router.post('/', function(request, response){
 
     else {
       tradelist = true;
-      const query = 'INSERT INTO user_cards (user_id, card_id, quantity, tradelist, wishlist, havelist) VALUES ($1, $2, $3, $4, $5, $6);';
-      pool.query(query, [userID, cardID, numberOfCards, tradelist, wishlist, havelist])
+      const query = 'INSERT INTO user_cards (user_id, card_id, quantity, cardtotals, tradelist, wishlist, havelist) VALUES ($1, $2, $3, $4, $5, $6, $7);';
+      pool.query(query, [userID, cardID, numberOfCards, cardTotals, tradelist, wishlist, havelist])
       .then(function(result){
         response.sendStatus(200);
       }).catch(function(error){

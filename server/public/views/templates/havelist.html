@@ -1,22 +1,22 @@
-<div class="HavesContainer">
-
+<div class="HavesContainer" Layout="row" layout-wrap >
+  <!-- <div  layout-wrap ng-include="'views/partials/calculatedCollection.html'"></div> -->
     <div class="container" layout="row"  layout-wrap >
   
-      <md-content ng-repeat="haves in vm.haveList.havelist" style="margin:10px;" flex="25"> 
-        <section><h3
-          class="thicker"
-          style="font-weight: bold; font-size: 150%; display:block; margin-left:auto; margin-right:auto; text-align: center">
-          {{haves.quantity}}x
-        </h3>
-      </section>
-          <img ng-src="{{haves.image}}" style="max-width: 100%;" >
-          <section style="font-size: 110%; text-align: center">Set: {{haves.set_name}}</section>
-          <section><h3
-            class="thicker"
-            style="font-weight: bold; font-size: 150%; display:block; margin-left:auto; margin-right:auto; text-align: center">
-            Market Price Average: ${{haves.usd}} USD
-          </h3>
+      <md-content ng-repeat="haves in vm.haveList.havelist" 
+      ng-repeat="price in vm.haveList.havelist"style="margin:10px;" flex="25"> 
+      <section style="font-weight: bold; font-size: 150%; text-align: center"></sectionstyle>
+        {{haves.quantity}}x
+    </section>
+        <img ng-src="{{haves.image}}" style="max-width: 100%;" >
+        <section style="font-size: 130%; text-align: center">
+          Set: {{haves.set_name}}</section>
+        <section style="font-weight: bold; font-size: 150%; text-align: center">
+          Market Price Average: ${{haves.usd}} USD 
         </section>
+        <section style="font-weight: bold; font-size: 150%; text-align: center">
+          {{haves.quantity}}x Price: {{haves.cardtotals}} USD
+      </section>
       </md-content>
     </div>
+
   </div>

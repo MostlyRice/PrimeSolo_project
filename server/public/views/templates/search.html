@@ -17,9 +17,9 @@
     <md-card ng-show="card.image_uris.normal">
       <section>
         <md-select ng-model="cardOptions" placeholder="Add To List" ng-required="true">
+          <md-option value="havelist">Add to Have List</md-option>
           <md-option value="tradelist">Add to Trades List</md-option>
           <md-option value="wishlist">Add to Wish List</md-option>
-          <md-option value="havelist">Add to Have List</md-option>
         </md-select>
         <input ng-model="numberOfCards" type="integer" placeholder ="Quantity">
       <img ng-src="{{card.image_uris.normal}}" style="max-height:60%; max-width:60%; display:block;

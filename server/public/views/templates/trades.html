@@ -3,20 +3,18 @@
         <div class="container" layout="row"  layout-wrap >
       
           <md-content ng-repeat="trades in vm.tradeList.tradelist" style="margin:10px;" flex="25"> 
-            <section><h3
-              class="thicker"
-              style="font-weight: bold; font-size: 150%; display:block; margin-left:auto; margin-right:auto; text-align: center">
-              {{trades.quantity}}x
-            </h3>
-          </section>
-              <img ng-src="{{trades.image}}" style="max-width: 100%;" >
-              <section style="font-size: 110%; text-align: center">Set: {{trades.set_name}}</section>
-              <section><h3
-                class="thicker"
-                style="font-weight: bold; font-size: 150%; display:block; margin-left:auto; margin-right:auto; text-align: center">
-                Market Price Average: ${{trades.usd}} USD
-              </h3>
+              <section style="font-weight: bold; font-size: 150%; text-align: center"></sectionstyle>
+                {{trades.quantity}}x
             </section>
+                <img ng-src="{{trades.image}}" style="max-width: 100%;" >
+                <section style="font-size: 130%; text-align: center">
+                  Set: {{trades.set_name}}</section>
+                <section style="font-weight: bold; font-size: 150%; text-align: center">
+                  Market Price Average: ${{trades.usd}} USD 
+                </section>
+                <section style="font-weight: bold; font-size: 150%; text-align: center">
+                  {{wish.quantity}}x Price: {{trades.cardtotals}} USD
+              </section>
           </md-content>
         </div>
       </div>
