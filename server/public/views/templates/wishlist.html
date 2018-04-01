@@ -1,20 +1,19 @@
-<div class="WishContainer">
-
-        <div class="container" layout="row"  layout-wrap >
-      
-          <md-content ng-repeat="wish in vm.wishList.wishlist" style="margin:10px;" flex="25"> 
-            <section style="font-weight: bold; font-size: 150%; text-align: center"></sectionstyle>
-              {{wish.quantity}}x
-          </section>
-              <img ng-src="{{wish.image}}" style="max-width: 100%;" >
-              <section style="font-size: 130%; text-align: center">
-                Set: {{wish.set_name}}</section>
-              <section style="font-weight: bold; font-size: 150%; text-align: center">
-                Market Price Average: ${{wish.usd}} USD 
-              </section>
-              <section style="font-weight: bold; font-size: 150%; text-align: center">
-                {{wish.quantity}}x Price: {{wish.cardtotals}} USD
-            </section>
-          </md-content>
-        </div>
+<div class="WishContainer" Layout="row" layout-wrap>
+  <div class="container" Layout="row" layout-wrap>
+    <md-content ng-repeat="wish in vm.wishList.wishlist" style="margin:10px;" flex="25"> 
+    <section style="font-size: 150%; text-align: center">
+      {{wish.quantity}}x
+    </section>
+  </section>
+      <img ng-src="{{wish.image}}" style="max-width: 100%;" >
+      <section style="font-size: 130%; text-align: center">
+        Set: {{wish.set_name}}</section>
+      <section style="font-weight: bold; font-size: 130%; text-align: center">
+        Price Average: ${{wish.usd}} USD 
+      </section>
+      <section style="font-weight: bold; font-size: 130%; text-align: center">
+        {{wish.quantity}}x Price: {{wish.cardtotals}} USD
+    </section>
+    </md-content>
+  </div>
       </div>
