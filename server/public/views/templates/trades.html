@@ -1,11 +1,11 @@
-<div class="tradesContainer" Layout="row" layout-wrap>
+<div class="TradeContainer">
   <div class="container" Layout="row" layout-wrap>
     <md-content ng-repeat="trades in vm.tradeList.tradelist" style="margin:10px;" flex="25"> 
-    <section style="font-size: 150%; text-align: center">
+    <section style=" font-size: 150%; text-align:center; margin:10px;" ng-click="vm.editCard()">
       {{trades.quantity}}x
     </section>
   </section>
-      <img ng-src="{{trades.image}}" style="max-width: 100%;" >
+      <img ng-src="{{trades.image}}" ng-click="vm.deleteCard()" style="max-width: 100%;" >
       <section style="font-size: 130%; text-align: center">
         Set: {{trades.set_name}}</section>
       <section style="font-weight: bold; font-size: 130%; text-align: center">
@@ -14,6 +14,7 @@
       <section style="font-weight: bold; font-size: 130%; text-align: center">
         {{trades.quantity}}x Price: {{trades.cardtotals}} USD
     </section>
+  </section>
     </md-content>
   </div>
 </div>

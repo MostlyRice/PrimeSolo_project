@@ -1,11 +1,11 @@
-<div class="HavesContainer" Layout="row" layout-wrap>
+<div class="HavesContainer">
     <div class="container" Layout="row" layout-wrap>
       <md-content ng-repeat="haves in vm.haveList.havelist" style="margin:10px;" flex="25"> 
-      <section style=" font-size: 150%; text-align: center">
+      <section style=" font-size: 150%; text-align:center; margin:10px;" ng-click="vm.editCard()">
         {{haves.quantity}}x
       </section>
     </section>
-        <img ng-src="{{haves.image}}" style="max-width: 100%;" >
+        <img ng-src="{{haves.image}}" ng-click="vm.deleteCard()" style="max-width: 100%;" >
         <section style="font-size: 130%; text-align: center">
           Set: {{haves.set_name}}</section>
         <section style="font-weight: bold; font-size: 130%; text-align: center">
@@ -14,6 +14,7 @@
         <section style="font-weight: bold; font-size: 130%; text-align: center">
           {{haves.quantity}}x Price: {{haves.cardtotals}} USD
       </section>
+    </section>
       </md-content>
     </div>
   </div>

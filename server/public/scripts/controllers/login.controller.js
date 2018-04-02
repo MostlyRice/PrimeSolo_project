@@ -15,33 +15,34 @@ myApp.controller('LoginController', ['$http', '$location', 'UserService', functi
         $http.post('/api/user/login', self.user).then(
           function (response) {
             if (response.status == 200) {
+              swal("You have been logged in!","", "success")
               console.log('success: ', response.data);
               // location works with SPA (ng-route)
               $location.path('/user');
             } else {
               console.log('failure error: ', response);
-              self.message = "Incorrect credentials. Please try again.";
+              swal("Incorrect credentials.","Please try again.", "error")
             }
           },
           function (response) {
             console.log('failure error: ', response);
-            self.message = "Incorrect credentials. Please try again.";
+            swal("Incorrect credentials.","Please try again.", "error")
           });
       }
     };
-
     self.registerUser = function () {
       if (self.user.username === '' || self.user.password === '') {
         self.message = "Choose a username and password!";
       } else {
         console.log('sending to server...', self.user);
         $http.post('/api/user/register', self.user).then(function (response) {
+          swal("You have been registered!","", "success")
           console.log('success');
           $location.path('/home');
         },
           function (response) {
             console.log('error');
-            self.message = "Something went wrong. Please try again."
+            swal("Something went wrong.","Please Try again", "error")
           });
       }
     }

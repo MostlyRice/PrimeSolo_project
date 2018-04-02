@@ -35,8 +35,9 @@ myApp.service('cardService',['$http','$location','UserService', function($http, 
         card:card,
         numberOfCards:numberOfCards}
       }).then(function (response) {
+        swal("Card added!","", "success").then(function () {
         $location.url('/search');
-        self.newItem = {};
+        self.newItem = {};})
       }).catch(function (error) {
         console.log('post error', error);
       })

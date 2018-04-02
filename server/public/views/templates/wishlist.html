@@ -1,11 +1,11 @@
-<div class="WishContainer" Layout="row" layout-wrap>
+<div class="WishContainer">
   <div class="container" Layout="row" layout-wrap>
     <md-content ng-repeat="wish in vm.wishList.wishlist" style="margin:10px;" flex="25"> 
-    <section style="font-size: 150%; text-align: center">
+    <section style=" font-size: 150%; text-align:center; margin:10px;" ng-click="vm.editCard()">
       {{wish.quantity}}x
     </section>
   </section>
-      <img ng-src="{{wish.image}}" style="max-width: 100%;" >
+      <img ng-src="{{wish.image}}" ng-click="vm.deleteCard()" style="max-width: 100%;" >
       <section style="font-size: 130%; text-align: center">
         Set: {{wish.set_name}}</section>
       <section style="font-weight: bold; font-size: 130%; text-align: center">
@@ -14,6 +14,7 @@
       <section style="font-weight: bold; font-size: 130%; text-align: center">
         {{wish.quantity}}x Price: {{wish.cardtotals}} USD
     </section>
+  </section>
     </md-content>
   </div>
-      </div>
+</div>
