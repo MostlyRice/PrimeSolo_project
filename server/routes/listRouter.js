@@ -58,4 +58,18 @@ router.put('/edit/:id', function(request, response){
 });
 // END GET ROUTE FOR HAVELIST
 
+router.delete('/delete/:id', function(request, response){
+  const user_id = request.params.id;
+  const query = 'DELETE FROM user_cards WHERE card_id={id}';
+  pool.query(query, [user_id])
+  .then(function(result){
+    console.log('Results from the Havelist',result);
+    response.send(result.rows);
+  }).catch(function(error){
+    console.log('there was a problem...with the havelist router', error);
+    response.sendStatus(500);
+  });
+});
+// END GET ROUTE FOR HAVELIST
+
 module.exports = router;

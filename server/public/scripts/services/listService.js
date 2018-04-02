@@ -63,6 +63,27 @@ myApp.service('listService',['$http','$location','UserService', function($http, 
     })
   }//Gets the Wishlist from the Database
 
+  self.editCard = function (){
+    console.log('Edit!!!')
+    swal("Inventory change! How many do you have now?", {
+        content: "input",
+        icon: "info",
+        buttons: true,
+        dangerMode: true,
+  }).then((value) => {
+    $http({
+      method: 'PUT',
+      url: `/list/edit/${self.userService.userObject.id}`,
+      data: {value}
+    }).then(function(response){
+    swal(`Your inventory will reflect that value of ${value}x`, {
+      icon: "success",})
+  }).catch(function(error){
+    console.log('error on editing quantity');
+})
+    });
+  }//End of edit function
+
   self.deleteCard = function (){
     console.log('Delete!!!')
     swal({
@@ -75,7 +96,7 @@ myApp.service('listService',['$http','$location','UserService', function($http, 
   .then((willDelete) => {
     if (willDelete) {$http({
       method: 'DELETE',
-      url: `/delete/${self.userService.userObject.id}`})
+      url: `/list/delete/${self.userService.userObject.id}`})
       .then(function(response){
       swal("Poof! Your card has has been deleted!", {
         icon: "success",});
@@ -86,25 +107,5 @@ myApp.service('listService',['$http','$location','UserService', function($http, 
   });
   }//This deletes the card from the database
 
-  self.editCard = function (){
-    console.log('Edit!!!')
-    swal("Inventory change! How many do you have now?", {
-        content: "input",
-        icon: "info",
-        buttons: true,
-        dangerMode: true,
-  }).then((value) => {
-    $http({
-      method: 'PUT',
-      url: `/edit/${self.userService.userObject.id}`,
-      data: {value}
-    }).then(function(response){
-    swal(`Your inventory will reflect that value of ${value}x`, {
-      icon: "success",})
-  }).catch(function(error){
-    console.log('error on editing quantity');
-})
-    });
-  }//End of edit function
   
 }]);

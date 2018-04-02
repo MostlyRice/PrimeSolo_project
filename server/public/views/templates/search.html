@@ -10,7 +10,7 @@
   <label>Search</label>
   <input ng-model="searchBar" type="text" placeholder ="">
 </md-input-container>
-<md-button ng-click="vm.searchApi(searchBar)" md-no-ink class="md-primary">Search</md-button>
+<md-button ng-click="vm.searchApi(searchBar); searchBar=''" md-no-ink class="md-primary">Search</md-button>
 </div>
 <div class="container" layout="row"  layout-wrap>
   <md-content ng-repeat="card in vm.cardService.searchOut.cards" >

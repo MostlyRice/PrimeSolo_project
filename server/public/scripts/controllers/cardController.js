@@ -4,7 +4,6 @@ myApp.controller('cardController', ['cardService', function(cardService) {
   const self = this;
   self.cardService = cardService;
 
-
   self.searchApi = (searchBar) => {
     cardService.searchApi(searchBar);
   }//Searches for a Magic card within the search parameter
