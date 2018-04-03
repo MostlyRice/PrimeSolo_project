@@ -31,7 +31,7 @@ myApp.config(['$routeProvider', '$locationProvider', function($routeProvider, $l
     })
     .when('/trades', {
       templateUrl: '/views/templates/trades.html',
-      controller: 'listController as vm',
+      controller: 'tradeController as vm',
       resolve: {
         getuser : function(UserService){
           return UserService.getuser();

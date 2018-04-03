@@ -35,19 +35,19 @@ myApp.service('listService',['$http','$location','UserService', function($http, 
     })
   }//Gets the Havelist from the Database
 
-  self.getTradelist = function (){
-    console.log('Getting Tradelist from the Database');
-    $http({
-      method: 'GET',
-      url: `/list/tradelist/${self.userService.userObject.id}`
-    })
-    .then(function(response){
-      self.tradeList.tradelist = response.data;
-    })
-    .catch(function(error){
-      console.log('error in Tradelist', error);
-    })
-  }//Gets the Tradelist from the Database
+  // self.getTradelist = function (){
+  //   console.log('Getting Tradelist from the Database');
+  //   $http({
+  //     method: 'GET',
+  //     url: `/list/tradelist/${self.userService.userObject.id}`
+  //   })
+  //   .then(function(response){
+  //     self.tradeList.tradelist = response.data;
+  //   })
+  //   .catch(function(error){
+  //     console.log('error in Tradelist', error);
+  //   })
+  // }//Gets the Tradelist from the Database
 
   self.getWishlist = function (){
     console.log('Getting Wishlist from the Database');
