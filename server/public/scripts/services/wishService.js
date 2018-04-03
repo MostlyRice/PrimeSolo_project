@@ -1,23 +1,23 @@
-myApp.service('tradeService',['$http','$location','UserService', function($http, $location, UserService) {
-    console.log('haveService loaded!');
+myApp.service('wishService',['$http','$location','UserService', function($http, $location, UserService) {
+    console.log('wishService loaded!');
   
     const self = this;
     self.userService = UserService;
-    self.tradeList = { tradelist: [] };
-
-    self.getTradelist = function (){
-      console.log('Getting Tradelist from the Database');
+    self.wishList = { wishlist: [] };
+  
+    self.getWishlist = function (){
+      console.log('Getting Wishlist from the Database');
       $http({
         method: 'GET',
-        url: `/list/tradelist/${self.userService.userObject.id}`
+        url: `/list/wishlist/${self.userService.userObject.id}`
       })
       .then(function(response){
-        self.tradeList.tradelist = response.data;
+        self.wishList.wishlist = response.data;
       })
       .catch(function(error){
-        console.log('error in Tradelist', error);
+        console.log('error in Wishlist', error);
       })
-    }//Gets the Tradelist from the Database
+    }//Gets the Wishlist from the Database
   
     self.editCard = function (){
       console.log('Edit!!!')
@@ -65,3 +65,4 @@ myApp.service('tradeService',['$http','$location','UserService', function($http,
   
     
   }]);
+  
