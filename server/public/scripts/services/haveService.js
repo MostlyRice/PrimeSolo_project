@@ -19,7 +19,7 @@ myApp.service('haveService',['$http','$location','UserService', function($http, 
     console.log('Getting Havelist from the Database');
     $http({
       method: 'GET',
-      url: `/list/havelist/${self.userService.userObject.id}`
+      url: `/have/havelist/${self.userService.userObject.id}`
     })
     .then(function(response){
       self.haveList.havelist = response.data;
@@ -41,7 +41,7 @@ myApp.service('haveService',['$http','$location','UserService', function($http, 
   }).then((value) => {
     $http({
       method: 'PUT',
-      url: `/list/edit/${self.userService.userObject.id}`,
+      url: `/have/edit/${self.userService.userObject.id}`,
       data: {value}
     }).then(function(response){
     swal(`Your inventory will reflect that value of ${value}x`, {
@@ -64,7 +64,7 @@ myApp.service('haveService',['$http','$location','UserService', function($http, 
   .then((willDelete) => {
     if (willDelete) {$http({
       method: 'DELETE',
-      url: `/list/delete/${self.userService.userObject.id}`})
+      url: `/have/delete/${self.userService.userObject.id}`})
       .then(function(response){
       swal("Poof! Your card has has been deleted!", {
         icon: "success",});

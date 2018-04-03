@@ -8,7 +8,9 @@ const sessionConfig = require('./modules/session-middleware');
 // Route includes
 const userRouter = require('./routes/user.router');
 const cardRouter = require('./routes/cardRouter');
-const listRouter = require('./routes/listRouter');
+const haveRouter = require('./routes/haveRouter');
+const tradeRouter = require('./routes/tradeRouter');
+const wishRouter = require('./routes/wishRouter');
 
 // Body parser middleware
 app.use(bodyParser.json());
@@ -24,7 +26,9 @@ app.use(passport.session());
 /* Routes */
 app.use('/api/user', userRouter);
 app.use('/cards', cardRouter);
-app.use('/list', listRouter);
+app.use('/have', haveRouter);
+app.use('/trade', tradeRouter);
+app.use('/wish', wishRouter);
 
 // Serve static files
 app.use(express.static('server/public'));

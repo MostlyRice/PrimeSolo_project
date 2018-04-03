@@ -9,7 +9,7 @@ myApp.service('tradeService',['$http','$location','UserService', function($http,
       console.log('Getting Tradelist from the Database');
       $http({
         method: 'GET',
-        url: `/list/tradelist/${self.userService.userObject.id}`
+        url: `/trade/tradelist/${self.userService.userObject.id}`
       })
       .then(function(response){
         self.tradeList.tradelist = response.data;
@@ -29,7 +29,7 @@ myApp.service('tradeService',['$http','$location','UserService', function($http,
     }).then((value) => {
       $http({
         method: 'PUT',
-        url: `/list/edit/${self.userService.userObject.id}`,
+        url: `/trade/edit/${self.userService.userObject.id}`,
         data: {value}
       }).then(function(response){
       swal(`Your inventory will reflect that value of ${value}x`, {
@@ -52,7 +52,7 @@ myApp.service('tradeService',['$http','$location','UserService', function($http,
     .then((willDelete) => {
       if (willDelete) {$http({
         method: 'DELETE',
-        url: `/list/delete/${self.userService.userObject.id}`})
+        url: `/trade/delete/${self.userService.userObject.id}`})
         .then(function(response){
         swal("Poof! Your card has has been deleted!", {
           icon: "success",});
