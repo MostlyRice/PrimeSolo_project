@@ -32,16 +32,37 @@ Link to software that is required to install the app (e.g. node).
 
 - npm install
 - Start postreSQL database
+- Copy, paste, and execute the SQL text from MTGDatabase.sql
 - npm start
 - localhost:5000
 
 Steps to get the development environment running.
 
 ```sql
-CREATE TABLE "users" (
-  "id" serial primary key,
-  "username" varchar(80) not null UNIQUE,
-  "password" varchar(240) not null
+CREATE TABLE users (
+id serial primary key,
+username varchar(80) not null UNIQUE,
+password varchar(240) not null
+);
+
+CREATE TABLE cards (
+id serial PRIMARY key,
+cardname VARCHAR (80),
+type VARCHAR(500),
+set_name VARCHAR(500),
+usd VARCHAR,
+image VARCHAR
+);
+
+CREATE TABLE user_cards (
+user_id INT REFERENCES users(id),
+card_id INT REFERENCES cards(id),
+quantity INT,
+cardtotals FLOAT,
+havelist BOOLEAN,
+wishlist BOOLEAN,
+tradelist BOOLEAN
+);
 );
 ```
 
@@ -57,20 +78,21 @@ Link to a read-only version of your scope document or other relevant documentati
 
 High level list of items to complete:
 
-- [ ] Add cards to binder collection
+- [x] Add cards to binder collection
 - [ ] Update quantity of said card in  binder collection.
 - [ ] Delete cards from binder collection.
-- [ ] Create a "on hover" feature that showcases the card image over the card
-- [ ] Create a "wishlist" view feature, featuring cards that you are currently seeking
-- [ ] Create a "deckbox" view feature, a way to keep track of lists that you were using 
-- [ ] Within the "deckbox", organize cards in the list by "type of card" (lands, instants, etc)
+- [x] Create a "Wishlist" view feature, featuring cards that you are currently seeking
+- [x] Create a "Havelist" view feature, a way to keep track of cards that your currently have
+- [x] Create a "Tradelist" view feature, a way to keep track of cards that you were willing to trade
 
 ### Next Steps
 
 Features that you would like to add at some point in the future.
 
-- [ ] TCGplayer API, to add price estimates to see what your collection, decklists, and wants are priced at
-- [ ] Using the TCGplayer API, an infograph to keep track of history of price spikes/falls
+- [ ] Utilizing the Profile Page to be able to see other people's lists
+- [ ] Using the Scryfall API, an infograph to keep track of history of price spikes/falls
+- [ ] Export lists as text documents
+- [ ] Create a trading view to compare the price difference between a trading transaction 
 
 ## Deployment
 
