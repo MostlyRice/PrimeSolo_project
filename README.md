@@ -5,14 +5,17 @@ Magic Deckbox is a full-stack web application to keep track of your magic collec
 Link to the live version of the app if it's hosted on Heroku.
 
 ## Built With
-- PEAN Stack
-    - PostgreSQL
+- SEAN Stack
+    - SQL
     - Express.js
     - AngularJS
     - Node.js
-- Magic The Gathering API (URL)
-- Heroku
-
+- Scryfall API (URL:https://scryfall.com/docs/api)
+- Angular-Material
+- Angular-Aria
+- Angular-Messages
+- SweetAlert
+- Passport
 
 ## Getting Started
 
