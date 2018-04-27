@@ -5,7 +5,7 @@
         {{haves.quantity}}x
       </section>
     </section>
-        <img ng-src="{{haves.image}}" ng-click="vm.deleteCard()" style="max-width: 100%;" >
+        <img ng-src="{{haves.image}}" ng-click="vm.deleteCard(haves.id, haves.card_id)" style="max-width: 100%;" >
         <section style="font-size: 130%; text-align: center">
           Set: {{haves.set_name}}</section>
         <section style="font-weight: bold; font-size: 130%; text-align: center">

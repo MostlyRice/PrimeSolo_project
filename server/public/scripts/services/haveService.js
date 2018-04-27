@@ -24,7 +24,8 @@ myApp.service('haveService',['$http','$location','UserService', function($http, 
     .then(function(response){
       self.haveList.havelist = response.data;
       self.calculateCollectionTotal();
-      console.log('success in getting Havelist from the database', self.calculateCollectionTotal());
+      console.log('Card.id', self.haveList.havelist[0].id, self.haveList.havelist[0].id);
+      console.log('CollectionTotal', self.calculateCollectionTotal());
     })
     .catch(function(error){
       console.log('error in Havelist', error);

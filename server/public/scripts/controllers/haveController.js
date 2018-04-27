@@ -5,6 +5,14 @@ myApp.controller('haveController', ['haveService', function(haveService) {
   self.getHavelist = haveService.getHavelist;
   self.getHavelist();
 
+  // self.editcard = () => {
+  //   haveService.editCard(numberOfCards);
+  // }//Edits the quantity of Magic cards in the table
+
+  // self.deleteCard = () => {
+  //   haveService.deleteCard();
+  // }//Edits the quantity of Magic cards in the table
+
 
   self.haveList = haveService.haveList    
   self.deleteCard = haveService.deleteCard
